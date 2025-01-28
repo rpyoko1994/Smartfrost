@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import url('https://v1.fontapi.ir/css/SFProDisplay');
+
+
+.amarillo{
+    color: #f2b400;
+}
+
+.bg-amarillo{
+   background-color: #f2b400;
+}
+body {
+    font-family: SF Pro Display, sans-serif;
+}
+a{
+    color: #f2b400;
+}
