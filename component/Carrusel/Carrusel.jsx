@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules"; // Importación correcta para Swiper v8+
 import "swiper/css";
 import "swiper/css/pagination";
 import paisaje from "../../Assets/foto1.jpeg";
+import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate
 
 function Carrusel() {
+     const navigate = useNavigate(); // Define navigate
+     const swiperRef = useRef(null);
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Carrusel con Swiper */}
@@ -14,6 +18,7 @@ function Carrusel() {
         pagination={{ clickable: true }}
         loop={true}
         className="absolute h-full w-full"
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {/* Primera diapositiva con caja personalizada */}
         <SwiperSlide className="relative">
@@ -30,10 +35,11 @@ function Carrusel() {
               Únete a nuestra misión
             </p>
             <div className="flex flex-col gap-2 mt-10">
-              <button className="w-full bg-amarillo text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition">
+              <button onClick={() => swiperRef.current?.slideNext()} className="w-full bg-amarillo text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition">
+              
                 Continue
               </button>
-              <button className="w-full bg-gray-50 text-yellow-500 font-bold py-2 rounded-lg hover:bg-gray-400 transition">
+              <button onClick={() => navigate("/Login")} className="w-full bg-gray-50 text-yellow-500 font-bold py-2 rounded-lg hover:bg-gray-400 transition">
                 Skip
               </button>
             </div>
@@ -55,10 +61,10 @@ function Carrusel() {
               Tecnología de punta para tus proyectos
             </p>
             <div className="flex flex-col gap-2 mt-10">
-              <button className="w-full bg-amarillo text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition">
+              <button onClick={() => swiperRef.current?.slideNext()} className="w-full bg-amarillo text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition">
                 Continue
               </button>
-              <button className="w-full bg-gray-50 text-yellow-500 font-bold py-2 rounded-lg hover:bg-gray-400 transition">
+              <button onClick={() => navigate("/login")} className="w-full bg-gray-50 text-yellow-500 font-bold py-2 rounded-lg hover:bg-gray-400 transition">
                 Skip
               </button>
             </div>
@@ -80,7 +86,7 @@ function Carrusel() {
               Innovación y sostenibilidad
             </p>
             <div className="flex flex-col gap-2 mt-10">
-              <button className="w-full bg-amarillo text-white font-bold py-2 rounded-lg hover:bg-green-600 transition">
+              <button onClick={() => navigate("/login")} className="w-full bg-amarillo text-white font-bold py-2 rounded-lg hover:bg-green-600 transition">
                 Les´t Star!
               </button>
             </div>

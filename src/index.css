@@ -16,3 +16,7 @@ body {
 a{
     color: #f2b400;
 }
+.swiper-pagination-bullet-active{
+  background-color: #f2b400;
+}
+
